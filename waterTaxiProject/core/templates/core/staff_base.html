@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+    <html lang="eng">
+            <head>
+            <meta charset="UTF-8">
+            <link rel="stylesheet" href="{% static 'core/CSS/style.css'%}">
+            <title>Emergency Frequecy Report</title>
+        </head>
+        <body style="background-image: url({% static 'core/Images/bg.jpg' %}); background-size: cover;">
+            <header>
+                <a href="{% url 'index' %}" class="logo">T&T Water Taxi Service</a>
+                <ul class="nav">
+                    <li class="nav-li"><a href="{% url 'addschedule' %}">Add Schedule</a></li>
+                    <li><a href="{% url 'viewtickets' %}">View Ticket</a></li>
+                    <li><a href="{% url 'viewemergency' %}">Emergency Alert</a></li>
+                    <li><a href="{% url 'emerFreqRep' %}">Emergency Frequecy</a></li>
+
+                    <li>
+                        {% if user.is_authenticated %}
+                            <!-- Display other user information or actions -->
+                            <form action="{% url 'logout' %}" method="post">
+                                {% csrf_token %} 
+                                <input type="submit" value="logout">
+                            </form>
+                        {% else %}
+                        <a href="{% url 'login' %}">Login/Sign Up</a></li>
+                        {% endif %}
+                </ul>
+            </header>
+            
+
+            <div class="content" style="color: #fff;">
+            </div>
+            
+           
+            
+        </body>
+        <script type="text/javascript">
+            window.addEventListener("scroll", function(){
+                var header = document.querySelector("header");
+                header.classList.toggle("sticky", window.scrollY > 0);
+            })
+        </script>
+    </html>

@@ -1,0 +1,68 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+<div style=" height: 50px; width: 100%;"></div>
+
+                <div class="row">
+                    <div class="column" style="text-align: center;">
+                        <H1 class="title" style="color: #fff;">Ticket Costs</H1>
+                        <H4>All persons traveling on the ferry require travel tickets.  However, the cost of travel varies based on the age of the passenger <br>and is reflected in the table below:</H4> 
+                        <div style="text-align: left; margin-top: 5%; margin-left: 16%;">
+                            <li>An Infant ticket is free, but a ticket must be requested for an infant when purchasing the adult ticket.</li>
+                            <li>Senior Citizens are Nationals of T&T 60 years & over with a valid T&T National ID or T&T Passport. This must be presented at the counter to validate ticket.</li>
+                        </div>
+                                               
+                    </div>
+                </div>
+
+                <div class="row">
+                   
+                    <div class="column"  style="padding-top: 100px; margin-left: 10%; margin-right: 10%;">                       
+                        
+                       
+    
+                        <table id="myTable">
+                            <tr class="header">
+                                <th style="width:25%;">Type of Ticket</th>
+                                <th style="width:20%;">Economy (one-way)</th>
+                                <th style="width:25%;">Economy (return)</th>
+                                <th style="width:20%;">Premium (one-way)</th>
+                                <th style="width:20%;">Premium (return)</th>
+                            </tr>
+                            <tr> 
+                                <td>Adult (12 years & above)</td>
+                                <td>$75.00</td>
+                                <td>$150.00</td>
+                                <td>$150.00</td>
+                                <td>$300.00</td>
+                            </tr>
+                            
+                            <tr> 
+                                <td>Child (3 years to 11 years)</td>
+                                <td>$50.00</td>
+                                <td>$100.00</td>
+                                <td>$100.00</td>
+                                <td>$200.00</td>
+                            </tr>
+                             
+                            <tr> 
+                                <td>Infant (2 years and under)</td>
+                                <td>FREE</td>
+                                <td>FREE</td>
+                                <td>FREE</td>
+                                <td>FREE</td>
+                            </tr>
+                            
+                            <tr> 
+                                <td>Senior Citizen (Nationals of T&T 60 years & over)</td>
+                                <td>$25.00</td>
+                                <td>$50.00</td>
+                                <td>$150.00</td>
+                                <td>$300.00</td>
+                            </tr>
+                        </table>
+                                                
+                    </div>
+                </div>  
+{% endblock %}
+

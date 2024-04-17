@@ -1,0 +1,67 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+<div style=" height: 50px; width: 100%;"></div>
+
+                <div class="row">
+                    <div class="column" style="text-align: center;">
+                        <H1 class="title" style="color: #fff;">Report An Emergency!</H1>
+                        <p style="font-size: larger; text-decoration: underline;">Please fill in the following information, so we can properly formulate a response.</p>
+                    </div>
+                </div>
+
+                <div style=" height: 50px; width: 100%;"></div>
+
+                <div class="row" style= "width: 80%; padding-left: 20% ;">
+                    <form method="post" action="{% url 'emergencyctd' %}">
+                        {% csrf_token %}
+                    
+
+                        <label for="route" required>Route</label>
+                        <select id="route" name="Route">
+                            <option value="san_fernando_pos">San-Fernando - POS</option>
+                            <option value="pos_san_fernando">POS - San-Fernando</option>
+                        </select>
+
+                        <label for="emtype">Emergency Type</label>
+                        <select id="emtype" name="emergencyType" required>
+                            <option value="medical">Medical Emergency</option>
+                            <option value="mechanical">Mechanical Emergency</option>
+                            <option value="fire">Fire</option>
+                            <option value="collision_grounding">Collision or Grounding</option>
+                            <option value="man_overboard">Man Overboard</option>
+                        </select>
+
+                        <label for="date_occured">Date Occurred</label>
+                        <input type="date" id="date_occured" name="dateOccured" value="" required> 
+                        
+                        <label for="age">Age</label>
+                    
+                        <input type="number" id="age" name="age" value="" max="100" placeholder="100">
+
+                        <label for="gender">Gender</label>
+                        
+                        <select id="gender" name="gender">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    
+                        <div class="row" style="position: relative;">
+                            <label for="sched_date" style="margin-left: 45%;">Comments</label>
+                            
+                        </div>
+
+                        <div class="row" style="position: relative;">
+                            <textarea name="comments" id="commtxt" cols="150" rows="5" style="margin-top: 1%;" placeholder="Please write any important details/comments/information here........" ></textarea>
+                        </div>
+                        
+
+                        <input type="submit" name="emergencySubmit" value="Submit">
+                        <input type="reset" name="emergencyReset" value="Reset">
+                    </form>    
+                    
+
+                </div>
+{% endblock %}
+

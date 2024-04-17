@@ -1,0 +1,42 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+<div style=" height: 50px; width: 100%;"></div>
+
+                <div class="row">
+                    <div class="column" style="text-align: center;">
+                        <H1 class="title" style="color: #fff;">Emergency</H1>
+                        <H4>All persons traveling on the ferry require travel tickets.  However, the cost of travel varies based on the age of the passenger <br>and is reflected in the table below:</H4> 
+                        
+                                               
+                    </div>
+                </div>
+
+                <div class="row">
+                   
+                    <div class="column"  style="padding-top: 100px; margin-left: 10%; margin-right: 10%;">                       
+                        
+                       
+    
+                        <table id="myTable">
+                            <tr class="header">
+                                <th style="width:25%;">Most Common Emergency Type</th>
+                                <th style="width:25%;">Most Common Route</th>
+                                <th style="width:20%;">Most Common Age</th>
+                                <th style="width:25%;">Most Common Gender</th>
+                            </tr>
+                            {#% for ticket in tickets %#}
+                            <tr>
+                                <td>{{most_common_type}}</td>
+                                <td>{{most_common_route}}</td>
+                                <td>{{most_common_range}}</td>
+                                <td>{{most_common_gender}}</td>
+                            </tr>
+                            
+                            
+                        </table>
+                                                
+                    </div>
+                </div>  
+{% endblock %}
+

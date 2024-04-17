@@ -1,0 +1,86 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+
+<div style=" height: 50px; width: 100%;"></div>
+
+                <div class="row">
+                    <div class="column">
+                        <h2 class="title" style="color: #fff;">Purchase a Ticket!</h2>
+                        <p> 
+                            Here you can purchase a ticket, which will be logged in our database.
+                        </p>
+                       
+                    </div>
+                </div>
+
+                <div style=" height: 50px; width: 100%;"></div>
+
+                <div class="row" style= "width: 80%; padding-left: 20% ;">
+                    <form method="post" action="{% url 'purchaseTicket' %}" onsubmit="post_success()">
+                        {% csrf_token %}
+
+                        <label for="fname">Username</label>
+                        
+                        <input type="text" id="fname" name="firstname" value="{{username}}" placeholder="Your name.." readonly>
+                    
+
+                        <label for="route">Route</label>
+                        <select id="route" name="Route">
+                            <option value="san_fernando_pos">San-Fernando - POS</option>
+                            <option value="pos_san_fernando">POS - San-Fernando</option>
+                        </select>
+
+                        <label for="sched_date">Schedule Date</label>
+                        <input type="date" id="sched_date" name="scheduleDate" value="" required>
+
+                        <label for="time">Departure Time</label>
+                        <select id="time" name="DepartureTime">
+                            <option value="6:00 AM">6:00 AM</option>
+                            <option value="6:30 AM">6:30 AM</option>
+                            <option value="7:00 AM">7:00 AM</option>
+                            <option value="7:30 AM">7:30 AM</option>
+                            <option value="8:00 AM">8:00 AM</option>
+                        </select>
+
+                        <label for="ticket_class">Ticket Class</label>
+                        <select id="ticket_class" name="ticket_class">
+                            <option value="economy">Economy</option>
+                            <option value="premium">Premium</option>
+                        </select>
+
+                        <label for="trip">Trip</label>
+                        <select id="trip" name="trip">
+                            <option value="one_way">One Way</option>
+                            <option value="return">Return</option>
+                        </select>
+
+                        <label for="adult">Adult Passengers</label>
+                        <input type="number" id="adult" name="Adults" value="0" placeholder="add number of Adults (ages 18 and over) passengers here...." required>
+
+                        <label for="teenager">Teenage Passengers</label>
+                        <input type="number" id="teenager" name="Teenager" value="0" placeholder="add number of Teen (ages 12-18) passengers here..." required>
+
+                        <label for="ifant">Infant Passengers</label>
+                        <input type="number" id="ifant" name="Infant" value="0" placeholder="add number of Infant (ages 11 and below) passengers here...." required>
+
+                        <label for="elderly">Elderly Passengers</label>
+                        <input type="number" id="elderly" name="Elderly" value="0" placeholder="add number of Elderly (ages 60 and over) passengers here....." required>
+
+                        <div class="row" style="position: relative;">
+                            <label for="sched_date" style="margin-left: 45%;">Ticket Details</label>
+                            
+                        </div>
+
+                        <div class="row" style="position: relative;">
+                            <textarea name="comments" id="commtxt" cols="150" rows="5" style="margin-top: 1%;" placeholder="Please write any important details/comments/information here........" ></textarea>
+                        </div>
+                    
+                   
+                        <input type="submit" value="Submit">
+                        <input type="reset" value="Reset">
+                    </form>
+                </div>
+
+{% endblock %}
+

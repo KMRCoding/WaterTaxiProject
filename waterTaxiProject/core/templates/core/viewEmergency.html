@@ -1,0 +1,87 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+<div style=" height: 50px; width: 100%;"></div>
+
+                <div class="row">
+                    <div class="column" style="text-align: center;">
+                        <H1 class="title" style="color: #fff;">View Emergencies</H1>
+                        <H4></H4> 
+                        
+                                               
+                    </div>
+                </div>
+
+                <div class="row">
+                   
+                    <div class="column"  style="padding-top: 100px; margin-left: 10%; margin-right: 10%;">                       
+                        
+                       
+    
+                        <table id="myTable">
+                            <tr class="header">
+                                <th style="width:25%;">EmergencyID</th>
+                                <th style="width:20%;">ReportedBy</th>
+                                <th style="width:25%;">EmergencyType</th>
+                                <th style="width:20%;">Age</th>
+                                <th style="width:20%;">Gender</th>
+                                <th style="width:20%;">Date</th>
+                                <th style="width:20%;">Route</th>
+                                <th style="width:20%;">Comments</th>
+                            </tr>
+
+                            {% for emergency in emergencys %}
+                            <tr>
+                                <td>{{ emergency.pk }}</td>  {# Assuming TicketID is the primary key #}
+
+                                <td>{{ emergency.user.first_name }} {{ emergency.user.last_name }}</td>
+                                
+                                <td>
+                                {% if emergency.emergency_type == 'medical' %}
+                                    Medical Emergency
+                                {% elif emergency.emergency_type == 'mechanical' %}
+                                    Mechanical Emergency
+                                {% elif emergency.emergency_type == 'fire' %}
+                                    Fire
+                                {% elif emergency.emergency_type == 'collision_grounding' %}
+                                    Collision or Grounding
+                                {% elif emergency.emergency_type == 'man_overboard' %}
+                                    Man Overboard
+                                {% else %}
+                                    Unknown Emergency
+                                {% endif %}
+                                </td>
+                                
+                                <td>{{ emergency.age }}</td>
+                                
+                                <td>
+                                {% if emergency.gender == 'male' %}
+                                    Male 
+                                {% elif emergency.gender == 'female' %}
+                                    Female
+                                {% elif emergency.gender == 'other' %}
+                                    Other                                
+                                {% else %}
+                                    Unknown Gender
+                                {% endif %}
+                                </td>
+                                <td>{{ emergency.date_occured }}</td>
+                                <td>
+                                    {% if emergency.route == 'san_fernando_pos' %}
+                                        San Fernando - POS
+                                    {% elif emergency.route == 'pos_san_fernando' %}
+                                        POS - San Fernando
+                                    {% else %}
+                                        Unknown Route
+                                    {% endif %}
+                                </td>  {# Assuming Route is a choices field, use get_<field>_display #}
+    
+                                <td>{{ emergency.comments }}</td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                                                
+                    </div>
+                </div>  
+{% endblock %}
+

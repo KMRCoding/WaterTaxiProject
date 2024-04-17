@@ -1,0 +1,33 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+<div style=" height: 50px; width: 100%;"></div>
+
+                <div class="row">
+                    <div class="column">
+                        <h2 class="title" style="color: #fff;">Revenue Report</h2>
+                        <p> 
+                            Select Start and End Date for report generation.
+                        </p>
+                       
+                    </div>
+                </div>
+
+                <div style=" height: 50px; width: 100%;"></div>
+
+                <div class="row" style= "width: 80%; padding-left: 27% ;">
+                    <form method="post" action="{% url 'revenueReportCtd' %}">
+                        {% csrf_token %}
+
+                        <label for="start_date">Start Date</label>
+                        <input type="date" id="start_date" name="start_date" value="">
+
+                        <label for="end_date">End Date</label>
+                        <input type="date" id="end_date" name="end_date" value="">
+
+                        <input type="submit" value="Submit">
+                        <input type="reset" value="Reset">
+                    </form>
+                </div>
+{% endblock %}
+

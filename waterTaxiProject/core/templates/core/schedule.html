@@ -1,0 +1,45 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+                
+    <div style=" height: 50px; width: 100%;"></div>
+
+    <div class="row">
+        <div class="column" style="text-align: center;">
+            <H1 class="title" style="color: #fff;">View Schedule</H1>   
+        </div>
+    </div>
+
+    <div class="row">
+       
+        <div class="column"  style="padding-top: 30px; margin-left: 10%; margin-right: 10%;">                       
+            
+           
+
+            <div id="schedule-table"></div>
+                                    
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Define table columns
+            var columns = [
+                { title: 'Day', field: 'day', headerFilter:'select', headerFilterParams: { values: true } },
+                { title: 'Route', field: 'route',headerFilter:'select', headerFilterParams: { values: true } } ,
+                { title: 'Departure Time', field: 'departureTime',headerFilter:'select', headerFilterParams: { values: true } },
+                { title: 'Vessel', field: 'vessel',headerFilter:'select', headerFilterParams: { values: true } }
+            ];
+    
+            // Define table data
+            var data = {{ data | safe }};
+            // Create Tabulator instance
+            var table = new Tabulator('#schedule-table', {
+                data: data,
+                columns: columns,
+                layout: 'fitColumns'
+            });
+        });
+    </script>
+     
+{% endblock %}
+

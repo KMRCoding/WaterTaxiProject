@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'core/CSS/style.css'%}">
+    <title>Login</title>
+</head>
+<body style="background-image: url({% static 'core/Images/bg.jpg' %}); background-size: cover;">
+
+    <div class="content" style="color: #fff;">
+        <div class="row">
+
+            <div class="column" style="text-align: center; padding-left: 5%;">                
+                <H1 class="title" style="color: #fff;">Login!</H1>
+                <p style="font-size: larger; text-decoration: underline;">Welcome back to our website </p>
+            </div>
+        </div>
+
+        <div style=" height: 50px; width: 100%;"></div>
+
+        <div class="row" style= "width: 80%; padding-left: 25% ;">
+            <form method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                <label for="username">Username</label>
+                
+                <input type="text" id="username" name="username" value="" placeholder="Your Username.." required>
+
+                <label for="password">Password</label>
+                
+                <input type="password" id="password" name="password" value="" placeholder="Your Password.." required>
+                
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+            </form>
+        </div>
+        <div>
+            <P style="font-size: larger;">Don't have an account? <a href="{% url 'signup' %}" id="loginLink" style="color: lawngreen;">CLICK HERE TO SIGNUP</a></P>
+        </div>
+    
+    </div>
+    
+</body>
+</html>

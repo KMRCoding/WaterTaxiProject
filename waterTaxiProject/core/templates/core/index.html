@@ -1,0 +1,90 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+<div class="row">
+    <div class="column" style="text-align: center;">
+        <H1 class="title" style="color: #fff;">WELCOME!</H1>
+        <p style="font-size: larger; text-decoration: underline;">Welcome to the Trinidad and Tobago Water Taxi Service's Online Ticking Website. Convenient Ticket Purchase at your service.</p>
+    </div>
+</div>
+
+
+
+
+<div style=" height: 50px; width: 100%;"></div>
+
+<div class="row">
+    <div class="column">
+        <img src="{% static 'core/Images/schedule.jpg' %}" alt="side_image" style="border-radius: 12px;">
+    </div>
+
+    <div class="column"  style="padding-top: 150px;">
+        <h2 class="title" style="color: #fff;">View Our Schedule!</h2>
+        <p> 
+            You can take a look at our schedule that displays our planned voyages for an entire month. 
+            This way you can plan your trips and purchase tickets accordingly.
+        </p>
+        <a href="{% url 'schedule' %}"><button class="button">View Schedule</button></a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="column"  style="padding-top: 150px;">
+        <h2 class="title" style="color: #fff;">Purchase A Ticket!</h2>
+        <p> 
+            We offer a simple and timely way to purchase a ticket online, as well as, payment options for credit, debit and visa cards.
+            Our user friendly ticket purchase interface is designed to accomodate elderly and technologically inexperienced users. 
+        </p>
+        <a href="{% url 'purchaseTicket' %}"><button class="button">Purchase Ticket</button></a>
+    </div>
+
+    <div class="column">
+        <img src="{% static 'core/Images/ticket.jpg' %}" alt="side_image" style="border-radius: 12px;">
+    </div>
+</div>
+
+<div class="row">
+    <div class="column">
+        <img src="{% static 'core/Images/ship.jpg' %}" alt="side_image" style="border-radius: 12px;">
+    </div>
+
+    <div class="column"  style="padding-top: 150px;">
+        <h2 class="title" style="color: #fff;">View Our Vessels</h2>
+        <p> 
+            You can take a look at our vessels, delving into information such as their capacity, service time and history. 
+            We cencourage users to brouse this page as it not only allows you to familiarize yourself with the vessels, but may allow you to make more 
+            informed decions in travel planning.
+        </p>
+        <a href="{% url 'vessels' %}"><button class="button">View Vessels</button></a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="column"  style="padding-top: 150px;">
+        <h2 class="title" style="color: #fff;">View Voyage Fares</h2>
+        <p> 
+            There are many different factors that may influence the cost of a ticket. Familiarizing with them may enhace your experience.
+        </p>
+        <a href="{% url 'fares' %}"><button class="button">View Fares</button></a>
+    </div>
+
+    <div class="column">
+        <img src="{% static 'core/Images/fares.jpg' %}" alt="side_image" style="border-radius: 12px;">
+    </div>
+</div>
+
+<div class="row">
+    <div class="column">
+        <img src="{% static 'core/Images/emergency.png' %}" alt="side_image" style="border-radius: 12px;">
+    </div>
+
+    <div class="column"  style="padding-top: 150px;">
+        <h2 class="title" style="color: #fff;">Emergency Alert!</h2>
+        <p> 
+            This functionality will allow you to report an emergency of any type to the our staff. It is meant to inform our staff of these emergencies even during a voyage.
+        </p>
+        <a href="{% url 'emergency' %}"><button class="button">Report an Emergency</button></a>
+    </div>
+</div>
+{% endblock %}
+

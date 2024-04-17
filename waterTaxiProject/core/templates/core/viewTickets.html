@@ -1,0 +1,73 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+<div style=" height: 50px; width: 100%;"></div>
+
+<div class="row">
+    <div class="column" style="text-align: center;">
+        <H1 class="title" style="color: #fff;">View Ticket</H1>
+                               
+    </div>
+</div>
+
+<div class="row">
+   
+    <div class="column"  style="padding-top: 50px; margin-left: 10%; margin-right: 10%;">                       
+        
+       
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for usernames..">
+        <table id="myTable">
+            <tr class="header">
+                <th style="width:10%;">BoughtBy</th>
+                <th style="width:10%;">DepartureTime</th>
+                <th style="width:15%;">ScheduleDate</th>
+                <th style="width:20%;">Route</th>
+                <th style="width:15%;">Class</th>
+                <th style="width:10%;">Adults</th>
+                <th style="width:10%;">Teens</th>
+                <th style="width:10%;">Infants</th>
+                <th style="width:10%;">Elderly</th>
+                <th style="width:20%;">Details</th>
+            </tr>
+            {% for ticket in tickets %}
+            <tr>
+                <td>{{ ticket.user.username }}</td>  {# Assuming BoughtBy is a related field, adjust as needed #}
+                <td>{{ ticket.departure_time }}</td>
+                <td>
+                {% if ticket.route == 'san_fernando_pos' %}
+                    San Fernando - POS
+                {% elif ticket.route == 'pos_san_fernando' %}
+                    POS - San Fernando
+                {% else %}
+                    Unknown Route
+                {% endif %}</td>  {# Assuming Route is a choices field, use get_<field>_display #}
+                <td>{{ ticket.schedule_date }}</td>
+                <td>{% if ticket.ticket_class == 'premium' %}
+                    Premium
+                {% elif ticket.ticket_class == 'economy' %}
+                    Economy
+                {% else %}
+                    Unknown Ticket Class
+                {% endif %}</td>
+                
+                <td>{{ ticket.adult_passengers }}</td>
+                <td>{{ ticket.teenage_passengers }}</td>
+                <td>{{ ticket.infant_passengers }}</td>
+                <td>{{ ticket.elderly_passengers }}</td>
+                <td>{{ ticket.comments }}</td>
+            </tr>
+            {% endfor %}
+            
+            
+        </table>
+
+                                
+    </div>
+</div>  
+{% endblock %}
+
+                
+                  
+        
+
+

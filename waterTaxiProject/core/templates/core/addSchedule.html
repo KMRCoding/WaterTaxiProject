@@ -1,0 +1,55 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+
+
+    <div class="row" style="padding-left: 8%">
+        <div class="column">
+            <h2 class="title" style="color: #fff; ">Add New Schedule</h2>
+            <p> 
+                Select current data for schedule generation
+            </p>
+           
+        </div>
+    </div>
+
+    <div class="row" style= "width: 80%; padding-left: 35% ; padding-right: 5%">
+        <form method="post" action="{% url 'addschedule' %}">
+            {% csrf_token %}
+
+            <label for="day"></label>
+            <select id="day" name="day" required>
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="Thrursday">Thrursday</option>
+                <option value="Friday">Friday</option>
+                <option value="Saturday">Saturday</option>
+                <option value="Sunday">Sunday</option>
+            </select>
+
+            <label for="route">Route</label>
+            <select id="route" name="route" required>
+                <option value="san_fernando_pos">San-Fernando - POS</option>
+                <option value="pos_san_fernando">POS - San-Fernando</option>
+            </select>
+
+            <label for="time">Departure Time</label>
+            <select id="time" name="DepartureTime" required>
+                <option value="6:00 AM">6:00 AM</option>
+                <option value="6:30 AM">6:30 AM</option>
+                <option value="7:00 AM">7:00 AM</option>
+                <option value="7:30 AM">7:30 AM</option>
+                <option value="8:00 AM">8:00 AM</option>
+            </select>
+
+            <label for="vessel">Departure Time</label>
+            <select id="vessel" name="vessel" required>
+                <option value="carbo_star">Carbo Star</option>
+            </select>
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </form>
+    </div>
+
+{% endblock %}
