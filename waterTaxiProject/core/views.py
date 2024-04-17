@@ -163,8 +163,8 @@ def emergencyctd(request):
         route = request.POST['Route']
         emergency_type= request.POST['emergencyType']
         date_occured = request.POST['dateOccured']
-        age = request.POST['age']
-        gender = request.POST['gender']
+        age = request.POST['age'] or None
+        gender = request.POST['gender'] or None
         comments = request.POST['comments']
         emergency_user = user if user.is_authenticated else None
         emergency=Emergency(user=emergency_user, route=route,emergency_type=emergency_type,date_occured=date_occured,age=age,gender=gender,comments=comments)
