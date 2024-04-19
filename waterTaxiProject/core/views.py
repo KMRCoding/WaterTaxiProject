@@ -115,6 +115,7 @@ def schedule(request):
 
     context={'data':data,'day':day,'route':route, 'vessel':vessel,}
     return render(request, 'core/schedule.html', context)
+
 @login_required
 def purchaseTicket(request):
     user = request.user # Retrieve the logged-in user object
@@ -130,7 +131,9 @@ def purchaseTicket(request):
         comments = request.POST['comments']
         trip = request.POST['trip']
         time=datetime.strptime(departure_time, "%I:%M %p").time()
-        ticket=Ticket(user=user,route=route,schedule_date=schedule_date,departure_time=time,adult_passengers=adult_passengers,teenage_passengers=teenage_passengers,infant_passengers=infant_passengers,elderly_passengers=elderly_passengers,ticket_class=ticket_class,trip=trip, comments=comments)
+        ticket=Ticket(user=user,route=route,schedule_date=schedule_date,departure_time=time,adult_passengers=adult_passengers,
+            teenage_passengers=teenage_passengers,infant_passengers=infant_passengers,elderly_passengers=elderly_passengers,ticket_class=ticket_class,trip=trip, 
+            comments=comments)
         ticket.save()
     context = {
         'username': user.username,

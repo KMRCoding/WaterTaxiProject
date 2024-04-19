@@ -20,10 +20,10 @@
                         {% csrf_token %}
 
                         <label for="start_date">Start Date</label>
-                        <input type="date" id="start_date" name="start_date" value="">
+                        <input type="date" id="start_date" name="start_date" value="" required>
 
                         <label for="end_date">End Date</label>
-                        <input type="date" id="end_date" name="end_date" value="">
+                        <input type="date" id="end_date" name="end_date" value="" required>
 
                         <input type="submit" value="Submit">
                         <input type="reset" value="Reset">
