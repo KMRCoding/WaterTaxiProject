@@ -13,7 +13,7 @@
                 <div style=" height: 50px; width: 100%;"></div>
 
                 <div class="row" style= "width: 80%; padding-left: 20% ;">
-                    <form method="post" action="{% url 'emergencyctd' %}">
+                    <form method="post" action="{% url 'emergencyctd' %}" onsubmit="post_success()">
                         {% csrf_token %}
                     
 

@@ -11,7 +11,7 @@
                 </div>
 
                 <div class="row" style= "width: 80%; padding-left: 20% ;">
-                    <form method="post" action="{% url 'addStaff' %}">
+                    <form method="post" action="{% url 'addStaff' %}" onsubmit="post_success()">
                         {% csrf_token %}
                         <label for="username">Username</label>
                         
